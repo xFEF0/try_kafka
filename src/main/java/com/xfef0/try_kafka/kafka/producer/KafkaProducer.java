@@ -14,13 +14,13 @@ import java.util.concurrent.CompletableFuture;
 @Slf4j
 public class KafkaProducer {
 
-    @Value("${spring.kafka.topic-name}")
-    private String topicName;
+    @Value("${spring.kafka.topic.message}")
+    private String messageTopic;
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     public void sendMessage(String message) {
-        CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send(topicName, message);
+        CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send(messageTopic, message);
         future.whenComplete((sendResult, exception) -> {
            if (exception != null) {
                future.completeExceptionally(exception);
@@ -28,7 +28,7 @@ public class KafkaProducer {
                future.complete(sendResult);
            }
 
-           log.info("Message sent {} to topic {}", message, topicName);
+           log.info("Message sent {} to topic {}", message, messageTopic);
         });
     }
 }

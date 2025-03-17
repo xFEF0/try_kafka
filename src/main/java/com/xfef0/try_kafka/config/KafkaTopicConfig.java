@@ -9,12 +9,20 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
 
-    @Value("$spring.kafka.topic-name")
-    private String topicName;
+    @Value("$spring.kafka.topic.message")
+    private String messageTopic;
+    @Value("$spring.kafka.topic.user")
+    private String userTopic;
 
     @Bean
-    public NewTopic testTopic() {
-        return TopicBuilder.name(topicName)
+    public NewTopic messageTopic() {
+        return TopicBuilder.name(messageTopic)
+                .build();
+    }
+
+    @Bean
+    public NewTopic userTopic() {
+        return TopicBuilder.name(userTopic)
                 .build();
     }
 }

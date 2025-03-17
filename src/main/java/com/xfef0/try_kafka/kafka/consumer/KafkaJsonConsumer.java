@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class KafkaConsumer {
+public class KafkaJsonConsumer {
 
-    @KafkaListener(topics = "#{'${spring.kafka.topic.message}'}", groupId = "group_id")
-    public void consume(String message) {
-        log.info("Received message: {}", message);
+    @KafkaListener(topics = "#{'${spring.kafka.topic.user}'}", groupId = "group_id")
+    public void consume(User user) {
+        log.info("Received user: {}", user);
     }
 }
