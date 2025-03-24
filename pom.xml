@@ -15,6 +15,7 @@
 	<description>Try Kafka with a Spring Boot app</description>
 	<modules>
 		<module>kafka-producer-wiki</module>
+		<module>kafka-consumer-wiki</module>
 	</modules>
 	<packaging>pom</packaging>
 	<url/>
