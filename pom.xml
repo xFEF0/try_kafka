@@ -13,6 +13,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>try_kafka</name>
 	<description>Try Kafka with a Spring Boot app</description>
+	<modules>
+		<module>kafka-producer-wiki</module>
+	</modules>
+	<packaging>pom</packaging>
 	<url/>
 	<licenses>
 		<license/>
