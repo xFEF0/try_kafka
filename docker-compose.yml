@@ -1,6 +1,13 @@
-version: '1'
 
 services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - "5432:5432"
+
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     environment:
